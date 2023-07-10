@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PublishUrlHistory>\\SERVER-TFS\Publish\MTS\|\\SERVER-TFS\Publish\|C:\Users\BigBro\Desktop\Новая папка\</PublishUrlHistory>
+    <InstallUrlHistory>\\SERVER-TFS\Publish\MTS\|\\SERVER-TFS\Rezerv\MTS\</InstallUrlHistory>
+    <SupportUrlHistory />
+    <UpdateUrlHistory>\\SERVER-TFS\Publish\MTS\|\\SERVER-TFS\Rezerv\MTS\</UpdateUrlHistory>
+    <BootstrapperUrlHistory>\\SERVER-TFS\Publish\MTS|\\SERVER-ASUP\ERP_Tech</BootstrapperUrlHistory>
+    <ErrorReportUrlHistory />
+    <FallbackCulture>en-US</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
+  </PropertyGroup>
+</Project>
