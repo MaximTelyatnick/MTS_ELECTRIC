@@ -392,11 +392,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>XRDesignRibbonControllerResources.resx</DependentUpon>
     </Compile>
-    <Content Include="DBSettings\aliasDB.txt" />
-    <Content Include="DBSettings\ipDB.txt" />
-    <Content Include="DBSettings\passDB.txt" />
-    <Content Include="DBSettings\portDB.txt" />
-    <Content Include="DBSettings\userDB.txt" />
+    <Content Include="DBSettings\aliasDB.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DBSettings\ipDB.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DBSettings\passDB.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DBSettings\portDB.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DBSettings\userDB.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="TVagonM.ico" />
     <Content Include="В_Монтажная область 1 копия.ico" />
     <EmbeddedResource Include="Login\AuthFm.resx">
