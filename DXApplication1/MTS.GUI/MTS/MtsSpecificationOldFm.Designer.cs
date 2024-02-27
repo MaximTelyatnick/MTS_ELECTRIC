@@ -60,8 +60,6 @@
             this.addMaterialBtn = new DevExpress.XtraBars.BarButtonItem();
             this.editMaterialBtn = new DevExpress.XtraBars.BarButtonItem();
             this.deleteMaterialBtn = new DevExpress.XtraBars.BarButtonItem();
-            this.barWorkspaceMenuItem1 = new DevExpress.XtraBars.BarWorkspaceMenuItem();
-            this.workspaceManager1 = new DevExpress.Utils.WorkspaceManager();
             this.basesBtn = new DevExpress.XtraBars.BarSubItem();
             this.nomenclatureShowBtn = new DevExpress.XtraBars.BarButtonItem();
             this.detailsShowBtn = new DevExpress.XtraBars.BarButtonItem();
@@ -71,10 +69,13 @@
             this.showSpecificMenuBtb = new DevExpress.XtraBars.BarSubItem();
             this.sortByMaterialBtn = new DevExpress.XtraBars.BarButtonItem();
             this.sortBySortamnetBtn = new DevExpress.XtraBars.BarButtonItem();
+            this.settingsBtn = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.repositoryItemTimeEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
+            this.workspaceManager1 = new DevExpress.Utils.WorkspaceManager();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
@@ -112,6 +113,7 @@
             this.addBuyDetailBarBtn = new DevExpress.XtraBars.BarButtonItem();
             this.editBuyDetailBarBtn = new DevExpress.XtraBars.BarButtonItem();
             this.deleteBuyDetailBarBtn = new DevExpress.XtraBars.BarButtonItem();
+            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
@@ -189,7 +191,6 @@
             this.imageCollection = new DevExpress.Utils.ImageCollection(this.components);
             this.styleController1 = new DevExpress.XtraEditors.StyleController(this.components);
             this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::MTS.GUI.WaitForm1), true, true);
-            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             ribbonPageUser = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).BeginInit();
@@ -208,6 +209,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.detalsSpecificGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoForDetailsEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barDetail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             this.xtraTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
@@ -233,7 +235,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.barMaterialDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.styleController1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonPageUser
@@ -289,7 +290,6 @@
             this.addMaterialBtn,
             this.editMaterialBtn,
             this.deleteMaterialBtn,
-            this.barWorkspaceMenuItem1,
             this.basesBtn,
             this.nomenclatureShowBtn,
             this.detailsShowBtn,
@@ -299,10 +299,11 @@
             this.copySpecBtn,
             this.showSpecificMenuBtb,
             this.sortByMaterialBtn,
-            this.sortBySortamnetBtn});
+            this.sortBySortamnetBtn,
+            this.settingsBtn});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbonControl1.MaxItemId = 4;
+            this.ribbonControl1.MaxItemId = 5;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -663,18 +664,6 @@
             this.deleteMaterialBtn.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
-            // barWorkspaceMenuItem1
-            // 
-            this.barWorkspaceMenuItem1.Caption = "barWorkspaceMenuItem1";
-            this.barWorkspaceMenuItem1.Id = 25;
-            this.barWorkspaceMenuItem1.Name = "barWorkspaceMenuItem1";
-            this.barWorkspaceMenuItem1.WorkspaceManager = this.workspaceManager1;
-            // 
-            // workspaceManager1
-            // 
-            this.workspaceManager1.TargetControl = this;
-            this.workspaceManager1.TransitionType = pushTransition1;
-            // 
             // basesBtn
             // 
             this.basesBtn.Caption = "Довідники";
@@ -771,14 +760,40 @@
             this.sortBySortamnetBtn.Name = "sortBySortamnetBtn";
             this.sortBySortamnetBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.sortBySortamnetBtn_ItemClick);
             // 
+            // settingsBtn
+            // 
+            this.settingsBtn.Caption = "Налаштування";
+            this.settingsBtn.Glyph = ((System.Drawing.Image)(resources.GetObject("settingsBtn.Glyph")));
+            this.settingsBtn.Id = 4;
+            this.settingsBtn.ItemAppearance.Hovered.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.settingsBtn.ItemAppearance.Hovered.Options.UseFont = true;
+            this.settingsBtn.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.settingsBtn.ItemAppearance.Normal.Options.UseFont = true;
+            this.settingsBtn.ItemAppearance.Pressed.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.settingsBtn.ItemAppearance.Pressed.Options.UseFont = true;
+            this.settingsBtn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("settingsBtn.LargeGlyph")));
+            this.settingsBtn.Name = "settingsBtn";
+            this.settingsBtn.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.settingsBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.settingsBtn_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             ribbonPageUser,
+            this.ribbonPageGroup3,
             this.ribbonPageGroup1,
             this.ribbonPageGroup2});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "ribbonPage1";
+            // 
+            // ribbonPageGroup3
+            // 
+            this.ribbonPageGroup3.AllowMinimize = false;
+            this.ribbonPageGroup3.AllowTextClipping = false;
+            this.ribbonPageGroup3.Glyph = ((System.Drawing.Image)(resources.GetObject("ribbonPageGroup3.Glyph")));
+            this.ribbonPageGroup3.ItemLinks.Add(this.settingsBtn, true);
+            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
+            this.ribbonPageGroup3.Text = "Налаштування";
             // 
             // ribbonPageGroup1
             // 
@@ -811,6 +826,11 @@
             this.repositoryItemTimeEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemTimeEdit1.Name = "repositoryItemTimeEdit1";
+            // 
+            // workspaceManager1
+            // 
+            this.workspaceManager1.TargetControl = this;
+            this.workspaceManager1.TransitionType = pushTransition1;
             // 
             // panelControl1
             // 
@@ -1361,6 +1381,11 @@
             this.deleteBuyDetailBarBtn.Name = "deleteBuyDetailBarBtn";
             this.deleteBuyDetailBarBtn.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.deleteBuyDetailBarBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.deleteBuyDetailBarBtn_ItemClick);
+            // 
+            // repositoryItemTextEdit1
+            // 
+            this.repositoryItemTextEdit1.AutoHeight = false;
+            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
             // 
             // xtraTabPage2
             // 
@@ -2327,11 +2352,6 @@
             // 
             this.splashScreenManager.ClosingDelay = 500;
             // 
-            // repositoryItemTextEdit1
-            // 
-            this.repositoryItemTextEdit1.AutoHeight = false;
-            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
-            // 
             // MtsSpecificationOldFm
             // 
             this.Appearance.Options.UseFont = true;
@@ -2382,6 +2402,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.detalsSpecificGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoForDetailsEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barDetail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             this.xtraTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
@@ -2407,7 +2428,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.barMaterialDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.styleController1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2549,7 +2569,6 @@
         private System.Windows.Forms.ToolStripMenuItem редагуватиЗаписToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem видалитиЗаписToolStripMenuItem2;
         private DevExpress.Utils.ImageCollection imageCollection;
-        private DevExpress.XtraBars.BarWorkspaceMenuItem barWorkspaceMenuItem1;
         private DevExpress.Utils.WorkspaceManager workspaceManager1;
         private DevExpress.XtraBars.BarSubItem basesBtn;
         private DevExpress.XtraBars.BarButtonItem nomenclatureShowBtn;
@@ -2571,5 +2590,7 @@
         private DevExpress.XtraBars.BarButtonItem sortByMaterialBtn;
         private DevExpress.XtraBars.BarButtonItem sortBySortamnetBtn;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
+        private DevExpress.XtraBars.BarButtonItem settingsBtn;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
     }
 }

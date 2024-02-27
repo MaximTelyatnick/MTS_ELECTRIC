@@ -29,6 +29,7 @@ using System.Collections;
 using MTS.BLL.DTO.ReportsDTO;
 using System.Globalization;
 using System.Threading;
+using MTS.GUI.Login;
 
 namespace MTS.GUI.MTS
 {
@@ -831,7 +832,7 @@ namespace MTS.GUI.MTS
             {
                 reportService = Program.kernel.Get<IReportService>();
                 LoadData();
-                reportService.PrintMapRouteTechProcess(((MTSSpecificationsDTO)specificBS.Current), (List<MTSDetailsDTO>)detalsSpecificBS.DataSource);
+                reportService.PrintMapRouteTechProcess(((MTSSpecificationsDTO)specificBS.Current), (List<MTSDetailsDTO>)detalsSpecificBS.DataSource, Properties.Settings.Default.UserFolderRoute);
             }
         }
 
@@ -928,7 +929,7 @@ namespace MTS.GUI.MTS
             reportService = Program.kernel.Get<IReportService>();
             LoadData();
 
-            reportService.SpecificationProcess(((MTSSpecificationsDTO)specificBS.Current), (List<MTSDetailsDTO>)detalsSpecificBS.DataSource, (List<MTSPurchasedProductsDTO>)byusDetalsSpecificBS.DataSource, (List<MTSMaterialsDTO>)materialsSpecificBS.DataSource);
+            reportService.SpecificationProcess(((MTSSpecificationsDTO)specificBS.Current), (List<MTSDetailsDTO>)detalsSpecificBS.DataSource, (List<MTSPurchasedProductsDTO>)byusDetalsSpecificBS.DataSource, (List<MTSMaterialsDTO>)materialsSpecificBS.DataSource, Properties.Settings.Default.UserFolderRoute);
 
         }
 
@@ -937,7 +938,7 @@ namespace MTS.GUI.MTS
             reportService = Program.kernel.Get<IReportService>();
             LoadData();
 
-            reportService.MapTechProcess(((MTSSpecificationsDTO)specificBS.Current), (List<MTSDetailsDTO>)detalsSpecificBS.DataSource, false);
+            reportService.MapTechProcess(((MTSSpecificationsDTO)specificBS.Current), (List<MTSDetailsDTO>)detalsSpecificBS.DataSource, false, Properties.Settings.Default.UserFolderRoute);
 
         }
 
@@ -1119,7 +1120,7 @@ namespace MTS.GUI.MTS
         {
             reportService = Program.kernel.Get<IReportService>();
             LoadData();
-            reportService.MapTechProcess(((MTSSpecificationsDTO)specificBS.Current), (List<MTSDetailsDTO>)detalsSpecificBS.DataSource, true);
+            reportService.MapTechProcess(((MTSSpecificationsDTO)specificBS.Current), (List<MTSDetailsDTO>)detalsSpecificBS.DataSource, true, Properties.Settings.Default.UserFolderRoute);
         }
 
         private void mapAllTechProcessBtn_ItemClick(object sender, ItemClickEventArgs e)
@@ -1131,7 +1132,7 @@ namespace MTS.GUI.MTS
                     int quantitySummaryItems = mtsSpecificationQuantityOldEditFm.Return();
                     reportService = Program.kernel.Get<IReportService>();
                     LoadData();
-                    reportService.MapTechProcess(((MTSSpecificationsDTO)specificBS.Current), (List<MTSDetailsDTO>)detalsSpecificBS.DataSource, true, quantitySummaryItems);
+                    reportService.MapTechProcess(((MTSSpecificationsDTO)specificBS.Current), (List<MTSDetailsDTO>)detalsSpecificBS.DataSource, true, Properties.Settings.Default.UserFolderRoute, quantitySummaryItems);
                 }
             }
         }
@@ -1219,14 +1220,14 @@ namespace MTS.GUI.MTS
             reportService = Program.kernel.Get<IReportService>();
             LoadData();
 
-            reportService.MapTechProcess(((MTSSpecificationsDTO)specificBS.Current), (List<MTSDetailsDTO>)detalsSpecificBS.DataSource, false);
+            reportService.MapTechProcess(((MTSSpecificationsDTO)specificBS.Current), (List<MTSDetailsDTO>)detalsSpecificBS.DataSource, false, Properties.Settings.Default.UserFolderRoute);
         }
 
         private void відобразитиКартуТехПроцесупоДатіToolStripMenuItem_Click(object sender, EventArgs e)
         {
             reportService = Program.kernel.Get<IReportService>();
             LoadData();
-            reportService.MapTechProcess(((MTSSpecificationsDTO)specificBS.Current), (List<MTSDetailsDTO>)detalsSpecificBS.DataSource, true);
+            reportService.MapTechProcess(((MTSSpecificationsDTO)specificBS.Current), (List<MTSDetailsDTO>)detalsSpecificBS.DataSource, true, Properties.Settings.Default.UserFolderRoute);
         }
 
         private void відобразитиЗведенуКартуТехПроцесуToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1238,7 +1239,7 @@ namespace MTS.GUI.MTS
                     int quantitySummaryItems = mtsSpecificationQuantityOldEditFm.Return();
                     reportService = Program.kernel.Get<IReportService>();
                     LoadData();
-                    reportService.MapTechProcess(((MTSSpecificationsDTO)specificBS.Current), (List<MTSDetailsDTO>)detalsSpecificBS.DataSource, true, quantitySummaryItems);
+                    reportService.MapTechProcess(((MTSSpecificationsDTO)specificBS.Current), (List<MTSDetailsDTO>)detalsSpecificBS.DataSource, true, Properties.Settings.Default.UserFolderRoute,quantitySummaryItems);
                 }
             }
         }
@@ -1249,7 +1250,7 @@ namespace MTS.GUI.MTS
             {
                 reportService = Program.kernel.Get<IReportService>();
                 LoadData();
-                reportService.PrintMapRouteTechProcess(((MTSSpecificationsDTO)specificBS.Current), (List<MTSDetailsDTO>)detalsSpecificBS.DataSource);
+                reportService.PrintMapRouteTechProcess(((MTSSpecificationsDTO)specificBS.Current), (List<MTSDetailsDTO>)detalsSpecificBS.DataSource, Properties.Settings.Default.UserFolderRoute);
             }
         }
 
@@ -1363,7 +1364,7 @@ namespace MTS.GUI.MTS
             reportService = Program.kernel.Get<IReportService>();
             LoadData();
 
-            reportService.SpecificationProcess(((MTSSpecificationsDTO)specificBS.Current), (List<MTSDetailsDTO>)detalsSpecificBS.DataSource, (List<MTSPurchasedProductsDTO>)byusDetalsSpecificBS.DataSource, (List<MTSMaterialsDTO>)materialsSpecificBS.DataSource, false);
+            reportService.SpecificationProcess(((MTSSpecificationsDTO)specificBS.Current), (List<MTSDetailsDTO>)detalsSpecificBS.DataSource, (List<MTSPurchasedProductsDTO>)byusDetalsSpecificBS.DataSource, (List<MTSMaterialsDTO>)materialsSpecificBS.DataSource, Properties.Settings.Default.UserFolderRoute, false);
         }
 
         private void sortBySortamnetBtn_ItemClick(object sender, ItemClickEventArgs e)
@@ -1372,7 +1373,7 @@ namespace MTS.GUI.MTS
             reportService = Program.kernel.Get<IReportService>();
             LoadData();
 
-            reportService.SpecificationProcess(((MTSSpecificationsDTO)specificBS.Current), (List<MTSDetailsDTO>)detalsSpecificBS.DataSource, (List<MTSPurchasedProductsDTO>)byusDetalsSpecificBS.DataSource, (List<MTSMaterialsDTO>)materialsSpecificBS.DataSource, true);
+            reportService.SpecificationProcess(((MTSSpecificationsDTO)specificBS.Current), (List<MTSDetailsDTO>)detalsSpecificBS.DataSource, (List<MTSPurchasedProductsDTO>)byusDetalsSpecificBS.DataSource, (List<MTSMaterialsDTO>)materialsSpecificBS.DataSource, Properties.Settings.Default.UserFolderRoute, true);
         }
 
         private void detalsSpecificGrid_EditorKeyPress(object sender, KeyPressEventArgs e)
@@ -1382,6 +1383,12 @@ namespace MTS.GUI.MTS
                 e.KeyChar = '.';
                 e.Handled = false;
             }
+        }
+
+        private void settingsBtn_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            UserSettingsFm userSettingsFm = new UserSettingsFm();
+            userSettingsFm.ShowDialog();
         }
     }
 }

@@ -76,7 +76,7 @@
     </Reference>
     <Reference Include="MTS.DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MTS.DAL\bin\Release\MTS.DAL.dll</HintPath>
+      <HintPath>..\MTS.DAL\bin\Debug\MTS.DAL.dll</HintPath>
     </Reference>
     <Reference Include="Nager.Date, Version=1.22.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Nager.Date.1.22.3\lib\net45\Nager.Date.dll</HintPath>

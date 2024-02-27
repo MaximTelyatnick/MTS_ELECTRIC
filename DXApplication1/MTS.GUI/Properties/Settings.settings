@@ -173,5 +173,8 @@
     <Setting Name="nomenGroupRatOfWasteCol" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
+    <Setting Name="UserFolderRoute" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -14,7 +14,6 @@ using System.IO;
 using SpreadsheetGear;
 using System.Diagnostics;
 using System.Windows.Forms;
-using MTS.DAL.Entities.ReportModel;
 using FirebirdSql.Data.FirebirdClient;
 
 using MTS.BLL.DTO.SelectedDTO;
@@ -36,74 +35,14 @@ namespace MTS.BLL.Services
     {
         private string GeneratedReportsDir = Utils.HomePath + @"\Temp\";
 
-        private string GeneratedReportsDirTest = Utils.HomePathTemp + @"\Temp\";
+        //private string GeneratedReportsDirTest = Utils.HomePathTemp + @"\Temp\";
 
         private Words._Application word;
         private Words._Document document;
 
         private IUnitOfWork Database { get; set; }
 
-        //private IRepository<ACCOUNTS> accounts;
-        //private IRepository<Bank_Payments> bankPayments;
-        //private IRepository<BeginCredit> beginCredit;
-        //private IRepository<BusinessTrips> businessTrips;
-        //private IRepository<BusinessTripsReportByAccounts> bstReportByAccounts;
-        //private IRepository<BusinessTripsReportByCurrency> bstReportByCurrency;
-        //private IRepository<BusinessTripsReportByEmployees> bstReportByEmployees;
-        //private IRepository<BusinessTripsReportByDepartments> bstReportByDepartments;
-        //private IRepository<BusinessTripsReportPaymentsByAccountId> bstReportPaymentsByAccountId;
-        //private IRepository<BusinessTripsReportPaymentsByPeriod> bstReportPaymentsByPeriod;
-        //private IRepository<BusinessTripsReportPrepaymentsByAccountId> bstReportPrepaymentsByAccountId;
-        //private IRepository<BusinessTripsReportPrepaymentsByAccountShort> businessTripsReportPrepaymentsByAccountShort;
-        //private IRepository<BusinessTripsPaymentStatement> bstPaymentStatement;
-        //private IRepository<BusinessTripsOrderCust> businessTripsOrderCust;
-        
-        //private IRepository<CashPaymentsReportByAccounts> cpReportByAccounts;
-        //private IRepository<CashBookRecordJournalByYear> cashBookRecordJournalByYear;
-        //private IRepository<CalcWithBuyersReport> calcWithBuyersReport;
-        //private IRepository<CalcWithBuyersShortReport> calcWithBuyersShortReport;
-        //private IRepository<CalcWithBuyersShortReport> calcWithBuyersSaldo;
 
-
-        //private IRepository<Contractors> contractors;
-        //private IRepository<ContractorVat> contractorsVat;
-        //private IRepository<CustomerOrders> customerOrders;
-
-        //private IRepository<BankPaymentsReportTrialBalance> bankPaymentsReportTrialBalance;
-        //private IRepository<BankPaymentsReportForCustomBill> bankPaymentsReportForCustomBill;
-        //private IRepository<BankPaymentsReportTrialBalanceQuarter> bankPaymentsReportTrialBalanceQuarter;
-        //private IRepository<BankPaymentsReportTrialBalanceFull> bankPaymentsReportTrialBalanceFull;
-        //private IRepository<BankPaymentsReportTrialBalanceAll313> bankPaymentsReportTrialBalanceAll313;
-        //private IRepository<CashPaymentsSaldoBalance> cashPaymentsSaldoBalance;
-        //private IRepository<CashPaymentsPeriodBalance> cashPaymentsPeriodBalance;
-        //private IRepository<Invoices> invoices;
-
-        
-        //private IRepository<MsTrialBalanceCurrency> msTrialBalanceCurrency;
-        //private IRepository<MsTrialBalance> msTrialBalance;
-        //private IRepository<MsTrialBalanceByAccountsCurrency> msTrialBalanceByAccountsCurrency;
-        //private IRepository<MsReconciliation> msReconciliation;
-        //private IRepository<MsReconciliation681_36> msReconciliation681_36;
-        //private IRepository<MSPaymentsWithoutVat> msPaymentWithoutVat;
-
-        //private IRepository<StoreHouseTrialBalance> storeHouseTrialBalance;
-        //private IRepository<StoreHouseInventory> storeHouseInventory;
-        //private IRepository<TrialBalanceByAccountsReport> trialBalanceByAccountsReport;
-        //private IRepository<ExpenditureForProjectReport> expenditureForProjectReport;
-        //private IFixedAssetsOrderService fixedAssetsOrderService;
-        //private IRepository<FixedAssetsOrderJournalPrint> fixedAssetsOrderJournalPrint;
-        //private IRepository<ORDERS> orders;
-        //private IRepository<OrdersInfo> ordersInfo;
-        //private IRepository<AccountOrders> accountOrders;
-        //private IRepository<VAT> vat;
-
-        //private IRepository<DetalsReportByOperationContractors> detalsReportByOperationContractors;
-        //private IRepository<OrderForDetalsContractor> orderForDetalsContractor;
-        //private IRepository<GetBPDetalsReportByCon> bpDetalsReportByCon;
-
-        //private IRepository<MtsNomenclatures> mtsNomenclatures;
-        //private IRepository<MSTrialBalanceByAccounts> msTrialBalanceByAccount;
-        //private IRepository<GetOSVkvartal_ForChess> getOSVkvartal_ForChess;
 
 
         
@@ -114,124 +53,69 @@ namespace MTS.BLL.Services
         {
             Database = uow;
 
-            //accounts = Database.GetRepository<ACCOUNTS>();
-            //beginCredit = Database.GetRepository<BeginCredit>();
-            //bstReportByAccounts = Database.GetRepository<BusinessTripsReportByAccounts>();
-            //bstReportByCurrency = Database.GetRepository<BusinessTripsReportByCurrency>();
-            //bstReportByEmployees = Database.GetRepository<BusinessTripsReportByEmployees>();
-            //bstReportByDepartments = Database.GetRepository<BusinessTripsReportByDepartments>();
-            //bstReportPaymentsByAccountId = Database.GetRepository<BusinessTripsReportPaymentsByAccountId>();
-            //bstReportPaymentsByPeriod = Database.GetRepository<BusinessTripsReportPaymentsByPeriod>();
-            //bstReportPrepaymentsByAccountId = Database.GetRepository<BusinessTripsReportPrepaymentsByAccountId>();
-            //businessTripsReportPrepaymentsByAccountShort = Database.GetRepository<BusinessTripsReportPrepaymentsByAccountShort>();
-            //bstPaymentStatement = Database.GetRepository<BusinessTripsPaymentStatement>();
-            //businessTripsOrderCust = Database.GetRepository<BusinessTripsOrderCust>();
-            //cpReportByAccounts = Database.GetRepository<CashPaymentsReportByAccounts>();
-            //cashBookRecordJournalByYear = Database.GetRepository<CashBookRecordJournalByYear>();
-            //calcWithBuyersReport = Database.GetRepository<CalcWithBuyersReport>();
-            //calcWithBuyersShortReport = Database.GetRepository<CalcWithBuyersShortReport>();
-            //calcWithBuyersSaldo = Database.GetRepository<CalcWithBuyersShortReport>();
-            //customerOrders = Database.GetRepository<CustomerOrders>();
-            //contractors = Database.GetRepository<Contractors>();
-            //contractorsVat = Database.GetRepository<ContractorVat>();
-            //expenditureForProjectReport = Database.GetRepository<ExpenditureForProjectReport>();
-            //bankPayments = Database.GetRepository<Bank_Payments>();
-            //bankPaymentsReportTrialBalance = Database.GetRepository<BankPaymentsReportTrialBalance>();
-            //bankPaymentsReportForCustomBill = Database.GetRepository<BankPaymentsReportForCustomBill>();
-            //bankPaymentsReportTrialBalanceQuarter = Database.GetRepository<BankPaymentsReportTrialBalanceQuarter>();
-            //bankPaymentsReportTrialBalanceAll313 = Database.GetRepository<BankPaymentsReportTrialBalanceAll313>();
-            //businessTrips = Database.GetRepository<BusinessTrips>();
-            //cashPaymentsSaldoBalance = Database.GetRepository<CashPaymentsSaldoBalance>();
-            //cashPaymentsPeriodBalance = Database.GetRepository<CashPaymentsPeriodBalance>();
-            //bankPaymentsReportTrialBalanceFull = Database.GetRepository<BankPaymentsReportTrialBalanceFull>();
-            //msPaymentWithoutVat = Database.GetRepository<MSPaymentsWithoutVat>();
-            //msTrialBalanceCurrency = Database.GetRepository<MsTrialBalanceCurrency>();
-            //msTrialBalance = Database.GetRepository<MsTrialBalance>();
-            //msTrialBalanceByAccountsCurrency = Database.GetRepository<MsTrialBalanceByAccountsCurrency>();
-            //msReconciliation = Database.GetRepository<MsReconciliation>();
-            //msReconciliation681_36 = Database.GetRepository<MsReconciliation681_36>();
-            //msTrialBalanceByAccount = Database.GetRepository<MSTrialBalanceByAccounts>();
-            //invoices = Database.GetRepository<Invoices>();
-            //storeHouseTrialBalance = Database.GetRepository<StoreHouseTrialBalance>();
-            //storeHouseInventory = Database.GetRepository<StoreHouseInventory>();
-            //trialBalanceByAccountsReport = Database.GetRepository<TrialBalanceByAccountsReport>();
-            //orders = Database.GetRepository<ORDERS>();
-            //ordersInfo = Database.GetRepository<OrdersInfo>();
-            //vat = Database.GetRepository<VAT>();
-            //accountOrders = Database.GetRepository<AccountOrders>();
-            //detalsReportByOperationContractors = Database.GetRepository<DetalsReportByOperationContractors>();
-            //orderForDetalsContractor = Database.GetRepository<OrderForDetalsContractor>();
-            //bpDetalsReportByCon = Database.GetRepository<GetBPDetalsReportByCon>();
-
-            ////mtsNomenclatures = Database.GetRepository<MtsNomenclatures>();
-            //getOSVkvartal_ForChess = Database.GetRepository<GetOSVkvartal_ForChess>();
-            
-          //  fixedAssetsOrderJournalPrint = Database.GetRepository<FixedAssetsOrderJournalPrint>();
            
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<ACCOUNTS, AccountsDTO>();
-                cfg.CreateMap<Bank_Payments, Bank_PaymentsDTO>();
-                cfg.CreateMap<BeginCredit, BeginCreditDTO>();
-                cfg.CreateMap<BeginCreditDTO, BeginCredit>();
-                cfg.CreateMap<BusinessTrips, BusinessTripsDTO>();
-                cfg.CreateMap<BusinessTripsReportByCurrency, BusinessTripsReportByCurrencyDTO>();
-                cfg.CreateMap<BusinessTripsReportByAccounts, BusinessTripsReportByAccountsDTO>();
-                cfg.CreateMap<BusinessTripsReportByEmployees, BusinessTripsReportByEmployeesDTO>();
-                cfg.CreateMap<BusinessTripsReportByDepartments, BusinessTripsReportByDepartmentsDTO>();
-                cfg.CreateMap<CashPaymentsReportByAccounts, CashPaymentsReportByAccountsDTO>();
-                cfg.CreateMap<BusinessTripsReportPaymentsByAccountId, BusinessTripsReportPaymentsByAccountIdDTO>();
-                cfg.CreateMap<BusinessTripsReportPrepaymentsByAccountShort, BusinessTripsReportPrepaymentsByAccountShortDTO>();
-                cfg.CreateMap<BusinessTripsReportPaymentsByPeriod, BusinessTripsReportPaymentsByPeriodDTO>();
-                cfg.CreateMap<BusinessTripsReportPrepaymentsByAccountId, BusinessTripsReportPrepaymentsByAccountIdDTO>();
-                cfg.CreateMap<BusinessTripsOrderCust, BusinessTripsOrderCustDTO>();
-                cfg.CreateMap<MSPaymentsWithoutVat, MSPaymentsWithoutVatDTO>();
-                cfg.CreateMap<CalcWithBuyersReport, CalcWithBuyersReportDTO>();
-                cfg.CreateMap<CalcWithBuyersShortReport, CalcWithBuyersShortReportDTO>();
-                cfg.CreateMap<BankPaymentsReportTrialBalance, BankPaymentsReportTrialBalanceDTO>();
-                cfg.CreateMap<BankPaymentsReportForCustomBill, BankPaymentsReportForCustomBillDTO>();
-                cfg.CreateMap<BankPaymentsReportTrialBalanceQuarter, BankPaymentsReportTrialBalanceQuarterDTO>();
-                cfg.CreateMap<BankPaymentsReportTrialBalanceFull, BankPaymentsReportTrialBalanceFullDTO>();
-                cfg.CreateMap<BankPaymentsReportTrialBalanceAll313, BankPaymentsReportTrialBalanceAll313DTO>();
-                cfg.CreateMap<CashPaymentsPeriodBalance, CashPaymentsPeriodBalanceDTO>();
-                cfg.CreateMap<CashPaymentsSaldoBalance, CashPaymentsSaldoBalanceDTO>();
-                cfg.CreateMap<CashBookRecordJournalByYear, CashBookRecordJournalByYearDTO>();
-                cfg.CreateMap<CashBookRecordJournalByYear, CashBookRecordJournalByYearDTO>();
-                cfg.CreateMap<Contractors, ContractorsDTO>();
-                cfg.CreateMap<CustomerOrders, CustomerOrdersDTO>();
-                cfg.CreateMap<ContractorVat, ContractorVatDTO>();
-                cfg.CreateMap<ContractorVatDTO, ContractorVat>();
-                cfg.CreateMap<ORDERS, OrdersDTO>();
-                cfg.CreateMap<ExpenditureForProjectReport, ExpenditureForProjectReportDTO>();
-                cfg.CreateMap<MsTrialBalanceCurrency, MsTrialBalanceCurrencyDTO>();
-                cfg.CreateMap<MsTrialBalance, MsTrialBalanceDTO>();
-                cfg.CreateMap<MsReconciliation, MsReconciliationDTO>();
-                cfg.CreateMap<MsTrialBalanceByAccountsCurrency, MsTrialBalanceByAccountsCurrencyDTO>();
-                cfg.CreateMap<MsReconciliation681_36, MsReconciliation681_36DTO>();
-                cfg.CreateMap<BusinessTripsPaymentStatement, BusinessTripsPaymentStatementDTO>();
-                cfg.CreateMap<CustomerOrders, CustomerOrdersDTO>();
-                cfg.CreateMap<Invoices, InvoicesDTO>();
-                cfg.CreateMap<StoreHouseTrialBalance, StoreHouseTrialBalanceDTO>();
-                cfg.CreateMap<StoreHouseInventory, StoreHouseInventoryDTO>();
-                cfg.CreateMap<TrialBalanceByAccountsReport, TrialBalanceByAccountsReportDTO>();
-                cfg.CreateMap<FixedAssetsOrderJournalPrint, FixedAssetsOrderJournalPrintDTO>();
-                cfg.CreateMap<FixedAssetsOrderJournalPrintDTO, FixedAssetsOrderJournalPrint>();
-                cfg.CreateMap<VAT, VatDTO>();
-                cfg.CreateMap<ReceiptOrders, ReceiptOrdersDTO>();
-                cfg.CreateMap<AccountOrders, AccountOrdersDTO>();
-                cfg.CreateMap<DetalsReportByOperationContractors, DetalsReportByOperationContractorsDTO>();
-                cfg.CreateMap<DetalsReportByOperationContractorsDTO, DetalsReportByOperationContractors>();
-                cfg.CreateMap<OrderForDetalsContractor, OrderForDetalsContractorDTO>();
-                cfg.CreateMap<OrderForDetalsContractorDTO, OrderForDetalsContractor>();
-                cfg.CreateMap<GetBPDetalsReportByCon, GetBPDetalsReportByConDTO>();
-                cfg.CreateMap<GetBPDetalsReportByConDTO, GetBPDetalsReportByCon>();
-                cfg.CreateMap<MSTrialBalanceByAccounts, MSTrialBalanceByAccountsDTO>();
-                cfg.CreateMap<MSTrialBalanceByAccountsDTO, MSTrialBalanceByAccounts>();
+                //cfg.CreateMap<ACCOUNTS, AccountsDTO>();
+                //cfg.CreateMap<Bank_Payments, Bank_PaymentsDTO>();
+                //cfg.CreateMap<BeginCredit, BeginCreditDTO>();
+                //cfg.CreateMap<BeginCreditDTO, BeginCredit>();
+                //cfg.CreateMap<BusinessTrips, BusinessTripsDTO>();
+                //cfg.CreateMap<BusinessTripsReportByCurrency, BusinessTripsReportByCurrencyDTO>();
+                //cfg.CreateMap<BusinessTripsReportByAccounts, BusinessTripsReportByAccountsDTO>();
+                //cfg.CreateMap<BusinessTripsReportByEmployees, BusinessTripsReportByEmployeesDTO>();
+                //cfg.CreateMap<BusinessTripsReportByDepartments, BusinessTripsReportByDepartmentsDTO>();
+                //cfg.CreateMap<CashPaymentsReportByAccounts, CashPaymentsReportByAccountsDTO>();
+                //cfg.CreateMap<BusinessTripsReportPaymentsByAccountId, BusinessTripsReportPaymentsByAccountIdDTO>();
+                //cfg.CreateMap<BusinessTripsReportPrepaymentsByAccountShort, BusinessTripsReportPrepaymentsByAccountShortDTO>();
+                //cfg.CreateMap<BusinessTripsReportPaymentsByPeriod, BusinessTripsReportPaymentsByPeriodDTO>();
+                //cfg.CreateMap<BusinessTripsReportPrepaymentsByAccountId, BusinessTripsReportPrepaymentsByAccountIdDTO>();
+                //cfg.CreateMap<BusinessTripsOrderCust, BusinessTripsOrderCustDTO>();
+                //cfg.CreateMap<MSPaymentsWithoutVat, MSPaymentsWithoutVatDTO>();
+                //cfg.CreateMap<CalcWithBuyersReport, CalcWithBuyersReportDTO>();
+                //cfg.CreateMap<CalcWithBuyersShortReport, CalcWithBuyersShortReportDTO>();
+                //cfg.CreateMap<BankPaymentsReportTrialBalance, BankPaymentsReportTrialBalanceDTO>();
+                //cfg.CreateMap<BankPaymentsReportForCustomBill, BankPaymentsReportForCustomBillDTO>();
+                //cfg.CreateMap<BankPaymentsReportTrialBalanceQuarter, BankPaymentsReportTrialBalanceQuarterDTO>();
+                //cfg.CreateMap<BankPaymentsReportTrialBalanceFull, BankPaymentsReportTrialBalanceFullDTO>();
+                //cfg.CreateMap<BankPaymentsReportTrialBalanceAll313, BankPaymentsReportTrialBalanceAll313DTO>();
+                //cfg.CreateMap<CashPaymentsPeriodBalance, CashPaymentsPeriodBalanceDTO>();
+                //cfg.CreateMap<CashPaymentsSaldoBalance, CashPaymentsSaldoBalanceDTO>();
+                //cfg.CreateMap<CashBookRecordJournalByYear, CashBookRecordJournalByYearDTO>();
+                //cfg.CreateMap<CashBookRecordJournalByYear, CashBookRecordJournalByYearDTO>();
+                //cfg.CreateMap<Contractors, ContractorsDTO>();
+                //cfg.CreateMap<CustomerOrders, CustomerOrdersDTO>();
+                //cfg.CreateMap<ContractorVat, ContractorVatDTO>();
+                //cfg.CreateMap<ContractorVatDTO, ContractorVat>();
+                //cfg.CreateMap<ORDERS, OrdersDTO>();
+                //cfg.CreateMap<ExpenditureForProjectReport, ExpenditureForProjectReportDTO>();
+                //cfg.CreateMap<MsTrialBalanceCurrency, MsTrialBalanceCurrencyDTO>();
+                //cfg.CreateMap<MsTrialBalance, MsTrialBalanceDTO>();
+                //cfg.CreateMap<MsReconciliation, MsReconciliationDTO>();
+                //cfg.CreateMap<MsTrialBalanceByAccountsCurrency, MsTrialBalanceByAccountsCurrencyDTO>();
+                //cfg.CreateMap<MsReconciliation681_36, MsReconciliation681_36DTO>();
+                //cfg.CreateMap<BusinessTripsPaymentStatement, BusinessTripsPaymentStatementDTO>();
+                //cfg.CreateMap<CustomerOrders, CustomerOrdersDTO>();
+                //cfg.CreateMap<Invoices, InvoicesDTO>();
+                //cfg.CreateMap<StoreHouseTrialBalance, StoreHouseTrialBalanceDTO>();
+                //cfg.CreateMap<StoreHouseInventory, StoreHouseInventoryDTO>();
+                //cfg.CreateMap<TrialBalanceByAccountsReport, TrialBalanceByAccountsReportDTO>();
+                //cfg.CreateMap<FixedAssetsOrderJournalPrint, FixedAssetsOrderJournalPrintDTO>();
+                //cfg.CreateMap<FixedAssetsOrderJournalPrintDTO, FixedAssetsOrderJournalPrint>();
+                //cfg.CreateMap<VAT, VatDTO>();
+                //cfg.CreateMap<ReceiptOrders, ReceiptOrdersDTO>();
+                //cfg.CreateMap<AccountOrders, AccountOrdersDTO>();
+                //cfg.CreateMap<DetalsReportByOperationContractors, DetalsReportByOperationContractorsDTO>();
+                //cfg.CreateMap<DetalsReportByOperationContractorsDTO, DetalsReportByOperationContractors>();
+                //cfg.CreateMap<OrderForDetalsContractor, OrderForDetalsContractorDTO>();
+                //cfg.CreateMap<OrderForDetalsContractorDTO, OrderForDetalsContractor>();
+                //cfg.CreateMap<GetBPDetalsReportByCon, GetBPDetalsReportByConDTO>();
+                //cfg.CreateMap<GetBPDetalsReportByConDTO, GetBPDetalsReportByCon>();
+                //cfg.CreateMap<MSTrialBalanceByAccounts, MSTrialBalanceByAccountsDTO>();
+                //cfg.CreateMap<MSTrialBalanceByAccountsDTO, MSTrialBalanceByAccounts>();
 
-                //cfg.CreateMap<MtsNomenclatures, MtsNomenclaturessDTO>();
-
-                cfg.CreateMap<GetOSVkvartal_ForChess, GetOSVkvartal_ForChessDTO>();
-                cfg.CreateMap<GetOSVkvartal_ForChessDTO, GetOSVkvartal_ForChess>();
+                //cfg.CreateMap<GetOSVkvartal_ForChess, GetOSVkvartal_ForChessDTO>();
+                //cfg.CreateMap<GetOSVkvartal_ForChessDTO, GetOSVkvartal_ForChess>();
                 
 
 
@@ -18870,7 +18754,7 @@ namespace MTS.BLL.Services
 
         #region Mts specification
 
-        public bool SpecificationProcess(MTSSpecificationsDTO mtsSpecification, List<MTSDetailsDTO> mtsDetailsList, List<MTSPurchasedProductsDTO> mtsBuyDetailsList, List<MTSMaterialsDTO> mtsMaterialsList, bool sortament = false)
+        public bool SpecificationProcess(MTSSpecificationsDTO mtsSpecification, List<MTSDetailsDTO> mtsDetailsList, List<MTSPurchasedProductsDTO> mtsBuyDetailsList, List<MTSMaterialsDTO> mtsMaterialsList, string homeDirectory, bool sortament = false)
         {
             #region summaryValues
 
@@ -19086,12 +18970,12 @@ namespace MTS.BLL.Services
             //shawing = weightOfWorkpiece - ((decimal)(mtsSpecification.WEIGHT == null ? 0 : mtsSpecification.WEIGHT - scrap));
 
             shawing = (decimal)weightOfWorkpiece - (decimal)mtsSpecification.WEIGHT - scrap;
-            PrintTechProcessSpecification(mtsSpecification, allResults, scrap, shawing, weightOfWorkpiece, sortament);
+            PrintTechProcessSpecification(mtsSpecification, allResults, scrap, shawing, weightOfWorkpiece, homeDirectory, sortament);
 
             return true;
         }
 
-        public bool MapTechProcess(MTSSpecificationsDTO mtsSpecification, List<MTSDetailsDTO> mtsDetailsList, bool sortByDrawing, int quantity = 1)
+        public bool MapTechProcess(MTSSpecificationsDTO mtsSpecification, List<MTSDetailsDTO> mtsDetailsList, bool sortByDrawing, string homeDirectory, int quantity = 1)
         {
 
             mtsSpecification.QUANTITY = mtsSpecification.QUANTITY * quantity;
@@ -19101,9 +18985,9 @@ namespace MTS.BLL.Services
 
 
             if (!sortByDrawing)
-                return PrintMapTechProcess(mtsSpecification, mtsDetailsList);
+                return PrintMapTechProcess(mtsSpecification, mtsDetailsList, homeDirectory);
             else
-                return PrintMapTechProcess(mtsSpecification, mtsDetailsList.OrderBy(sort => sort.DRAWING).ToList());
+                return PrintMapTechProcess(mtsSpecification, mtsDetailsList.OrderBy(sort => sort.DRAWING).ToList(), homeDirectory);
         }
 
         public decimal? GetGuage(string obj)
@@ -19180,13 +19064,13 @@ namespace MTS.BLL.Services
         }
 
         //печать спецификации
-        public bool PrintTechProcessSpecification(MTSSpecificationsDTO mtsSpecification, List<SpecificationPrintModelDTO> dataSource, decimal scrap, decimal shawing, decimal weightOfWorkpiece, bool sortament = false)
+        public bool PrintTechProcessSpecification(MTSSpecificationsDTO mtsSpecification, List<SpecificationPrintModelDTO> dataSource, decimal scrap, decimal shawing, decimal weightOfWorkpiece,string homeDirectory, bool sortament = false)
         {
             
 
-            if (!Directory.Exists(Utils.printFolderUri))
+            if (!Directory.Exists(homeDirectory))
             {
-                Directory.CreateDirectory(Utils.printFolderUri);
+                Directory.CreateDirectory(homeDirectory);
             }
 
             try
@@ -19506,9 +19390,9 @@ namespace MTS.BLL.Services
             try
             {
                 string fileName = String.Format("Спецификация на изделие  " + mtsSpecification.NAME);
-                Workbook.SaveAs(Utils.printFolderUri + fileName + ".xls", FileFormat.XLS97);
+                Workbook.SaveAs(homeDirectory + fileName + ".xls", FileFormat.XLS97);
                 Process process = new Process();
-                process.StartInfo.Arguments = "\"" + Utils.printFolderUri + fileName + ".xls" + "\"";
+                process.StartInfo.Arguments = "\"" + homeDirectory + fileName + ".xls" + "\"";
                 process.StartInfo.FileName = "Excel.exe";
                 process.Start();
 
@@ -19524,11 +19408,11 @@ namespace MTS.BLL.Services
         }
 
         //печать карты техпроцесса
-        public bool PrintMapTechProcess(MTSSpecificationsDTO mtsSpecification, List<MTSDetailsDTO> dataSource)
+        public bool PrintMapTechProcess(MTSSpecificationsDTO mtsSpecification, List<MTSDetailsDTO> dataSource, string homeDirectory)
         {
-            if (!Directory.Exists(Utils.printFolderUri))
+            if (!Directory.Exists(homeDirectory))
             {
-                Directory.CreateDirectory(Utils.printFolderUri);
+                Directory.CreateDirectory(homeDirectory);
             }
 
             try
@@ -19699,9 +19583,9 @@ namespace MTS.BLL.Services
             try
             {
                 string fileName = String.Format("Карта технологического процесса проекта " + mtsSpecification.NAME);
-                Workbook.SaveAs(Utils.printFolderUri + fileName + ".xls", FileFormat.Excel8);
+                Workbook.SaveAs(homeDirectory + fileName + ".xls", FileFormat.Excel8);
                 Process process = new Process();
-                process.StartInfo.Arguments = "\"" + Utils.printFolderUri + fileName + ".xls" + "\"";
+                process.StartInfo.Arguments = "\"" + homeDirectory + fileName + ".xls" + "\"";
                 process.StartInfo.FileName = "Excel.exe";
                 process.Start();
 
@@ -19717,11 +19601,11 @@ namespace MTS.BLL.Services
         }
 
         //печать карты маршрутного техпроцесса
-        public bool PrintMapRouteTechProcess(MTSSpecificationsDTO mtsSpecification, List<MTSDetailsDTO> dataSource)
+        public bool PrintMapRouteTechProcess(MTSSpecificationsDTO mtsSpecification, List<MTSDetailsDTO> dataSource, string homeDirectory)
         {
-            if (!Directory.Exists(Utils.printFolderUri))
+            if (!Directory.Exists(homeDirectory))
             {
-                Directory.CreateDirectory(Utils.printFolderUri);
+                Directory.CreateDirectory(homeDirectory);
             }
 
             try
@@ -19814,9 +19698,9 @@ namespace MTS.BLL.Services
             try
             {
                 string fileName = String.Format("Карта Маршрутного технолгического процесса проекта " + mtsSpecification.NAME);
-                Workbook.SaveAs(Utils.printFolderUri + fileName + ".xls", FileFormat.Excel8);
+                Workbook.SaveAs(homeDirectory + fileName + ".xls", FileFormat.Excel8);
                 Process process = new Process();
-                process.StartInfo.Arguments = "\"" + Utils.printFolderUri + fileName + ".xls" + "\"";
+                process.StartInfo.Arguments = "\"" + homeDirectory + fileName + ".xls" + "\"";
                 process.StartInfo.FileName = "Excel.exe";
                 process.Start();
 

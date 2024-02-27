@@ -701,5 +701,17 @@ namespace MTS.GUI.Properties {
                 this["nomenGroupRatOfWasteCol"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string UserFolderRoute {
+            get {
+                return ((string)(this["UserFolderRoute"]));
+            }
+            set {
+                this["UserFolderRoute"] = value;
+            }
+        }
     }
 }
