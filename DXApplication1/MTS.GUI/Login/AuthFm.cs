@@ -73,31 +73,40 @@ namespace MTS.GUI.Login
             }
             catch (Exception ex)
             {
+                MessageBox.Show("Виникла проблема при підключенні до БД \n" + ex.Message, "Підключення до БД", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 MessageBox.Show("Виникла проблема при підключенні до БД \n" + ex.Message, "Підключення до БД", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
-            
 
-            SplashScreenManager.ShowForm(typeof(StartScreenFm));
-            SplashScreenManager.Default.SendCommand(StartScreenFm.SplashScreenCommand.SetLabel, "Авторизація користувача...");
-            Thread.Sleep(200);
-
-            if (userService.TryAuthorize(loginEdit.Text, pwdEdit.Text))
+            try
             {
-                
-                SplashScreenManager.Default.SendCommand(StartScreenFm.SplashScreenCommand.SetLabel, "Налаштування прав доступу...");
+                SplashScreenManager.ShowForm(typeof(StartScreenFm));
+                SplashScreenManager.Default.SendCommand(StartScreenFm.SplashScreenCommand.SetLabel, "Авторизація користувача...");
                 Thread.Sleep(200);
-                SplashScreenManager.CloseForm();
-                return true;
-            }
-            else
-            {
-                SplashScreenManager.CloseForm();
-                MessageBox.Show("Вам не дозволено працювати в системі \nЗверніться до відділу АСУП. \n", "Авторизація користувача", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                Load += (s, e) => Close();
+                if (userService.TryAuthorize(loginEdit.Text, pwdEdit.Text))
+                {
+
+                    SplashScreenManager.Default.SendCommand(StartScreenFm.SplashScreenCommand.SetLabel, "Налаштування прав доступу...");
+                    Thread.Sleep(200);
+                    SplashScreenManager.CloseForm();
+                    return true;
+                }
+                else
+                {
+                    SplashScreenManager.CloseForm();
+                    MessageBox.Show("Вам не дозволено працювати в системі \nЗверніться до відділу АСУП. \n", "Авторизація користувача", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    Load += (s, e) => Close();
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Виникла помилка. " + ex.InnerException.Message, "Інфо", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+            
 
         }
 
