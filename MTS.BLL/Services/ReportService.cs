@@ -701,11 +701,16 @@ namespace MTS.BLL.Services
             try
             {
                 string fileName = String.Format("Спецификация на изделие  " + mtsSpecification.NAME);
-                Workbook.SaveAs(homeDirectory + fileName + ".xls", FileFormat.XLS97);
-                Process process = new Process();
-                process.StartInfo.Arguments = "\"" + homeDirectory + fileName + ".xls" + "\"";
-                process.StartInfo.FileName = "Excel.exe";
-                process.Start();
+                Workbook.SaveAs(homeDirectory + "/" + fileName + ".xls", FileFormat.XLS97);
+
+                if (MessageBox.Show("Відкрити файл " + fileName + ".xls ?", "Підтвердження", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Process process = new Process();
+                    process.StartInfo.Arguments = "\"" + homeDirectory + "/" + fileName + ".xls" + "\"";
+                    //process.StartInfo.FileName = "Excel.exe";
+                    process.StartInfo.FileName = "SOFFICE.exe";
+                    process.Start();
+                }
 
             }
 
@@ -894,11 +899,16 @@ namespace MTS.BLL.Services
             try
             {
                 string fileName = String.Format("Карта технологического процесса проекта " + mtsSpecification.NAME);
-                Workbook.SaveAs(homeDirectory + fileName + ".xls", FileFormat.Excel8);
-                Process process = new Process();
-                process.StartInfo.Arguments = "\"" + homeDirectory + fileName + ".xls" + "\"";
-                process.StartInfo.FileName = "Excel.exe";
-                process.Start();
+                Workbook.SaveAs(homeDirectory + "/" + fileName + ".xls", FileFormat.Excel8);
+
+                if (MessageBox.Show("Відкрити файл " + fileName + ".xls ?", "Підтвердження", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Process process = new Process();
+                    process.StartInfo.Arguments = "\"" + homeDirectory + "/" + fileName + ".xls" + "\"";
+                    //process.StartInfo.FileName = "Excel.exe";
+                    process.StartInfo.FileName = "SOFFICE.exe";
+                    process.Start();
+                }
 
             }
 
@@ -1009,11 +1019,17 @@ namespace MTS.BLL.Services
             try
             {
                 string fileName = String.Format("Карта Маршрутного технолгического процесса проекта " + mtsSpecification.NAME);
-                Workbook.SaveAs(homeDirectory + fileName + ".xls", FileFormat.Excel8);
-                Process process = new Process();
-                process.StartInfo.Arguments = "\"" + homeDirectory + fileName + ".xls" + "\"";
-                process.StartInfo.FileName = "Excel.exe";
-                process.Start();
+                Workbook.SaveAs(homeDirectory + "/"+ fileName + ".xls", FileFormat.Excel8);
+
+                if (MessageBox.Show("Відкрити файл " + fileName + ".xls ?", "Підтвердження", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    Process process = new Process();
+                    process.StartInfo.Arguments = "\"" + homeDirectory + "/" + fileName + ".xls" + "\"";
+                    //process.StartInfo.FileName = "Excel.exe";
+                    process.StartInfo.FileName = "SOFFICE.exe";
+                    process.Start();
+                }
 
             }
 
@@ -1090,7 +1106,8 @@ namespace MTS.BLL.Services
                 var name = _generatedReportsDir + path + filename + ".xls";
                 var process = new Process();
                 process.StartInfo.Arguments = "\"" + name + "\"";
-                process.StartInfo.FileName = "Excel.exe";
+                //process.StartInfo.FileName = "Excel.exe";
+                process.StartInfo.FileName = "SOFFICE.exe";
                 process.Start();
             }
             catch (System.ComponentModel.Win32Exception)

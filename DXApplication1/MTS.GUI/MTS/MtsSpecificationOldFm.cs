@@ -828,6 +828,12 @@ namespace MTS.GUI.MTS
 
         private void mapRouteTechProcessBtn_ItemClick(object sender, ItemClickEventArgs e)
         {
+            if (Properties.Settings.Default.UserFolderRoute == String.Empty)
+            {
+                MessageBox.Show("Необхідно у налаштуваннях додати директорію для збереження звітів!", "Неможливо зформувати звіт!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (detalsSpecificBS.Count > 0)
             {
                 reportService = Program.kernel.Get<IReportService>();
@@ -935,6 +941,12 @@ namespace MTS.GUI.MTS
 
         private void mapTechProcessBtn_ItemClick(object sender, ItemClickEventArgs e)
         {
+            if (Properties.Settings.Default.UserFolderRoute == String.Empty)
+            {
+                MessageBox.Show("Необхідно у налаштуваннях додати директорію для збереження звітів!", "Неможливо зформувати звіт!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             reportService = Program.kernel.Get<IReportService>();
             LoadData();
 
@@ -1118,6 +1130,12 @@ namespace MTS.GUI.MTS
 
         private void mapTechProcessByDateBtn_ItemClick(object sender, ItemClickEventArgs e)
         {
+            if (Properties.Settings.Default.UserFolderRoute == String.Empty)
+            {
+                MessageBox.Show("Необхідно у налаштуваннях додати директорію для збереження звітів!", "Неможливо зформувати звіт!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             reportService = Program.kernel.Get<IReportService>();
             LoadData();
             reportService.MapTechProcess(((MTSSpecificationsDTO)specificBS.Current), (List<MTSDetailsDTO>)detalsSpecificBS.DataSource, true, Properties.Settings.Default.UserFolderRoute);
@@ -1125,6 +1143,12 @@ namespace MTS.GUI.MTS
 
         private void mapAllTechProcessBtn_ItemClick(object sender, ItemClickEventArgs e)
         {
+            if (Properties.Settings.Default.UserFolderRoute == String.Empty)
+            {
+                MessageBox.Show("Необхідно у налаштуваннях додати директорію для збереження звітів!", "Неможливо зформувати звіт!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             using (MtsSpecificationQuantityOldEditFm mtsSpecificationQuantityOldEditFm = new MtsSpecificationQuantityOldEditFm())
             {
                 if (mtsSpecificationQuantityOldEditFm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -1361,6 +1385,12 @@ namespace MTS.GUI.MTS
         private void sortByMaterialBtn_ItemClick(object sender, ItemClickEventArgs e)
         {
             //SpecificationProcess(MTSSpecificationsDTO mtsSpecification, List<MTSDetailsDTO> mtsDetailsList, List<MTSPurchasedProductsDTO> mtsBuyDetailsList, List<MTSMaterialsDTO> mtsMaterialsList);
+            if (Properties.Settings.Default.UserFolderRoute == String.Empty)
+            {
+                MessageBox.Show("Необхідно у налаштуваннях додати директорію для збереження звітів!", "Неможливо зформувати звіт!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             reportService = Program.kernel.Get<IReportService>();
             LoadData();
 
@@ -1370,6 +1400,12 @@ namespace MTS.GUI.MTS
         private void sortBySortamnetBtn_ItemClick(object sender, ItemClickEventArgs e)
         {
             //SpecificationProcess(MTSSpecificationsDTO mtsSpecification, List<MTSDetailsDTO> mtsDetailsList, List<MTSPurchasedProductsDTO> mtsBuyDetailsList, List<MTSMaterialsDTO> mtsMaterialsList);
+            if (Properties.Settings.Default.UserFolderRoute == String.Empty)
+            {
+                MessageBox.Show("Необхідно у налаштуваннях додати директорію для збереження звітів!", "Неможливо зформувати звіт!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             reportService = Program.kernel.Get<IReportService>();
             LoadData();
 
