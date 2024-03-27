@@ -25,7 +25,7 @@ namespace MTS.BLL.Services
         private IRepository<MTS_NOMENCLATURES> mtsNomenclatures;
         private IRepository<MTS_NOMENCLATURE_GROUPS> mtsNomenclatureGroups;
         private IRepository<MTS_GOST> mtsGosts;
-        private IRepository<MTS_MEASURE> mtsMeasure;
+        //private IRepository<MTS_MEASURE> mtsMeasure;
 
 
         private IMapper mapper;
@@ -148,7 +148,7 @@ namespace MTS.BLL.Services
                 mtsNomenclatures.Delete(mtsNomenclatures.GetAll().FirstOrDefault(c => c.ID == id));
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }

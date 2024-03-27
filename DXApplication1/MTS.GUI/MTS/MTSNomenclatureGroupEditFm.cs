@@ -134,7 +134,6 @@ namespace MTS.GUI.MTS
                         ((MTSNomenclatureGroupsDTO)Item).ID = mtsNomenclaturesService.NomenclatureGroupCreate((MTSNomenclatureGroupsDTO)Item);
 
                         return true;
-                        break;
                     }
 
 
@@ -145,7 +144,6 @@ namespace MTS.GUI.MTS
 
                         mtsNomenclaturesService.NomenclarureGroupUpdate((MTSNomenclatureGroupsDTO)Item);
                         return true;
-                        break;
                     }
 
 

@@ -20,7 +20,7 @@ namespace MTS.GUI.Login
     {
         private IUserService userService;
         private MTSAuthorizationUsersDTO userInfo;
-        private IEnumerable<UserTasksDTO> userAccess;
+        //private IEnumerable<UserTasksDTO> userAccess;
         public AuthFm()
         {
 

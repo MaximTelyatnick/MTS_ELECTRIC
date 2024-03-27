@@ -35,7 +35,7 @@ namespace MTS.GUI.MTS
 {
     public partial class MtsSpecificationOldFm : DevExpress.XtraEditors.XtraForm
     {
-        private UserTasksDTO userTaskDTO;
+        //private UserTasksDTO userTaskDTO;
 
         private IMtsSpecificationsService mtsService;
         private IReportService reportService;
@@ -43,7 +43,7 @@ namespace MTS.GUI.MTS
         private BindingSource detalsSpecificBS = new BindingSource();
         private BindingSource byusDetalsSpecificBS = new BindingSource();
         private BindingSource materialsSpecificBS = new BindingSource();
-        private UserTasksDTO userTasksDTO;
+        //private UserTasksDTO userTasksDTO;
         private MTSAuthorizationUsersDTO mtsAthorizationUsersDTO;
         private int previousFocusedRowDetails = -1;
         private int previousFocusedRowBuyDetails = -1;
@@ -106,8 +106,6 @@ namespace MTS.GUI.MTS
                     addMaterialDetailBarBtn.Enabled = false;
                     editMaterialDetailBarBtn.Enabled = false;
                     deleteMaterialDetailBarBtn.Enabled = false;
-                    break;
-                //other
                     break;
                 case 4: //admin, full access
                     break;

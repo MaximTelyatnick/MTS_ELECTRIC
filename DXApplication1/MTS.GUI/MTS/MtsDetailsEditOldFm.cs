@@ -336,8 +336,6 @@ namespace MTS.GUI.MTS
                         return true;
                     else
                         return false;
-                    break;
-
                 case 2:
                     
                     if ((decimal)widthEdit.EditValue > 0 && (decimal)heightEdit.EditValue > 0)
@@ -345,14 +343,11 @@ namespace MTS.GUI.MTS
                     else
                         return false;
 
-                    break;
-
                 case 3:
                     if ((decimal)heightEdit.EditValue > 0)
                         return true;
                     else
                         return false;
-                    break;
 
                 default:
                     break;
